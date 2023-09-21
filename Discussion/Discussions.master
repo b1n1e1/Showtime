@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage2.master" AutoEventWireup="true" CodeFile="Discussions.master.cs" Inherits="Discussion_Discussions" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <asp:ContentPlaceHolder runat="server" ID="head"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+    Discussion
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <form runat="server" method="post" style="display:inline;">
+        <div id="discussions" style="border-style:solid; border-width:2px; border-radius:10px; border-color:black; height:80%; margin-top:10px; width:90%; margin-left:5%;">
+            <div style="height:50px; width:100%; background-color:lightgray; border-radius:10px;">
+                <div style="display:inline;">
+                    <input type="text" name="search" id="search" placeholder="Search" style="background-color:transparent; border-radius:5px; border-color:black; border-width:1px; height:30px; margin-top:10px; margin-left:10px; padding-left:5px;" />
+                    <input id="submit" type="submit" value="Search" style="background-color:darkgray; border-color:transparent; border-radius:5px; height:30px; margin-top:10px; text-align:center; font-size:larger; cursor:pointer;" />
+                </div>
+                <a href="Post.aspx?from=<%= System.IO.Path.GetFileName(Request.PhysicalPath).ToUpper() %>"><div style="height:40px; width:50px; cursor:pointer; background-color:darkgray; color:black; margin-top:5px; display:inline-block; float:right; text-align:center; margin-right:10px; font-size:30px; border-radius:10px;">+</div></a>
+            </div>
+            <div id="posts" style="height:450px; overflow-y:auto;">
+                <asp:ContentPlaceHolder runat="server" ID="Posts" ></asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <br />
+        <div id="link" style="width:700px; margin-left:40px; text-align:center; font-size:small;">
+            <a href="BigMouth.aspx">Big Mouth Discussion</a> - <a href="BlackMirror.aspx">Black Mirror Discussion</a> - <a href="FinalSpace.aspx">Final Space Discussion</a> - <a href="Misc.aspx">Miscellaneous Discussion</a> - <a href="RickAndMorty.aspx">Rick and Morty Discussion</a>
+        </div>
+    </form>
+</asp:Content>
+

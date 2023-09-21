@@ -1,0 +1,168 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link runat="server" rel="icon" href="Icon.png" type="image/png"/>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+
+        .sidenav {
+              height: 100%;
+              width: 0; 
+              position: fixed; 
+              z-index: 1;
+              top: 0;
+              left: 0;
+              background-color: #111; 
+              overflow-x: hidden;
+              padding-top: 60px;
+              transition: 0.5s; 
+        }
+
+        .sidenav a {
+              padding: 8px 8px 8px 32px;
+              display: block;
+        }
+
+        .sidenav .closebtn {
+              position: absolute;
+              top: 0;
+              right: 25px;
+              font-size: 36px;
+              margin-left: 50px;
+              color:white;
+        }
+
+        #main {
+          transition: margin-left .5s;
+          padding: 20px;
+        }
+
+
+        table, td, th {
+            border: 1px solid black;
+
+        }
+
+        .main {
+            height:650px;
+            vertical-align:top;
+            background-color:white;
+            color:black;
+            overflow-y:auto;
+            font-family:Calibri;
+        }
+
+        .main p {
+            vertical-align:text-top;
+            text-align:center;
+        }
+
+        .main img {
+            height:300px;
+            width:300px;
+            display:inline-block;
+        }
+
+        h1 {
+            text-align:center;
+        }
+
+        #openNav {
+            position:fixed;
+            height: 30px;
+            width:30px;
+            background-color:#000000;
+            transition:2s;
+            color:white;
+            font-size:30px;
+            text-align:center;
+            font-style:oblique;
+
+        }
+        #openNav:hover {
+            cursor:pointer;
+        }
+
+        #openNav b{
+            top:25%;
+            
+        }
+        
+        #mySidenav img {
+            width:100px;
+            height:56px;
+            margin:0 auto;
+        }
+        #links {
+            margin-top:250px;
+            font-size:smaller;
+            display:inline-block;
+            
+        }
+
+    </style>
+</head>
+<body style="background-color:black;">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../Main1.aspx"><img src="../image/Home.png" alt="Home" title="Home" /></a>
+        <a href="../Signup.aspx"><img src="../image/SignUp.png" alt="Sign Up" title="Sign Up" /></a>
+        <a href="../About.aspx"><img src="../image/About.png" alt="About" title="About" /></a>
+        <a href="../Info.aspx"><img src="../image/Info.png" alt="Info" title="Info" /></a>
+        <a href="../Login.aspx"><img src="../image/LogIn.png" alt="Log In" title="Log In" /></a>
+        <a href="../Discussion.aspx"><img src="../image/Forum.png" alt="Forum" title="Forum" /></a>
+        <a href="../Game.aspx"><img src="../image/Game.png" alt="Game" title="Game" /></a>
+        <a href="../Gallery.aspx"><img src="../image/Gallery.png" alt="Gallery" title="Gallery" /></a>
+    </div>
+
+    <span onclick="openNav()" id="openNav"><b>≡</b></span>
+
+    <div id="main" onclick="closeNav();">
+        <table style="width:1100px; height:850px; margin:0 auto; background-color:white;" id="format">
+            <tr style="height:200px;">
+                <td colspan="2" style="text-align:center; background-color:white">
+                    <!--<h1 style="color:red; text-align:center; font-size:75px;">Ben's TV Website!</h1>-->
+                    <a href="Main1.aspx">
+                        <img src="../image/Title.jpg" alt="title" title="Show Time" />
+                        <img src="../image/Logo.png" alt="logo" title="Show Time"/>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:300px; background-color:white; position:relative; text-align:center;"><h1 style="color:black; font-family:Calibri;"> 
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder> </h1>
+                    <div id="links">
+                        <a href="../About.aspx">About</a>  -  <a href="../Gallery.aspx">Gallery</a>  -  <a href="../Game.aspx">Game</a>  -  <a href="../Info.aspx">Info</a>  -  <a href="../Login.aspx">Login</a><br />     <a href="../Main1.aspx">Home</a>  -  <a href="../Signup.aspx">Signup</a> - <a href="../Discussion.aspx">Discussion</a><br /><%=update_string %><br /><%=html_string %>
+                    </div>
+                </td>
+                <td class="main"><asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder></td>
+            </tr>
+        </table>
+    </div>
+
+   <b><marquee direction="right" truespeed="15000" style="color:red; background-color:white; height:5%; top:95%; position:fixed; font-size:45px; font-style:italic;">&copy; All Rights Reserved To Ben Eliav</marquee></b>
+        
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.7)";
+            document.body.style.overflowX = "hidden";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "black";
+            document.body.style.overflowX = "auto";
+        }   
+    </script>
+</body>
+</html>
